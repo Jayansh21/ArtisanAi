@@ -22,7 +22,11 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 // Configure CORS first to ensure preflight succeeds
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: [
+    process.env.FRONTEND_URL || 'http://localhost:3000',
+    'https://artisanai-omega.vercel.app',
+    'https://artisanai-omega.vercel.app/'
+  ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
