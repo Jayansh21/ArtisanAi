@@ -8,9 +8,6 @@ import {
   Mail, 
   Lock, 
   User, 
-  Building, 
-  Phone, 
-  MapPin,
   ArrowLeft,
   AlertCircle,
   CheckCircle
@@ -34,16 +31,6 @@ const SignupPage: React.FC = () => {
     phone: '',
     location: '',
   });
-
-  const businessTypes = [
-    'Textiles',
-    'Handicrafts', 
-    'Jewelry',
-    'Pottery',
-    'Woodwork',
-    'Metalwork',
-    'Other'
-  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -230,88 +217,6 @@ const SignupPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Business Information */}
-              <div className="border-t border-gray-200 pt-6">
-                <h4 className="text-lg font-semibold text-gray-800 mb-4">Business Information (Optional)</h4>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Business Name
-                    </label>
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <Building className="h-5 w-5 text-gray-400" />
-                      </div>
-                      <input
-                        type="text"
-                        name="businessName"
-                        value={formData.businessName}
-                        onChange={handleInputChange}
-                        className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-                        placeholder="Your business name"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Business Type
-                    </label>
-                    <select
-                      name="businessType"
-                      value={formData.businessType}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-                    >
-                      <option value="">Select business type</option>
-                      {businessTypes.map(type => (
-                        <option key={type} value={type}>{type}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Phone Number
-                    </label>
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <Phone className="h-5 w-5 text-gray-400" />
-                      </div>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-                        placeholder="Phone number"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Location
-                    </label>
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <MapPin className="h-5 w-5 text-gray-400" />
-                      </div>
-                      <input
-                        type="text"
-                        name="location"
-                        value={formData.location}
-                        onChange={handleInputChange}
-                        className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-                        placeholder="Your location"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
 
               <button
                 type="submit"

@@ -27,25 +27,7 @@ const signupValidation = [
   body('lastName')
     .trim()
     .isLength({ min: 1, max: 50 })
-    .withMessage('Last name is required and must be less than 50 characters'),
-  body('businessName')
-    .optional()
-    .trim()
-    .isLength({ max: 100 })
-    .withMessage('Business name must be less than 100 characters'),
-  body('businessType')
-    .optional()
-    .isIn(['Textiles', 'Handicrafts', 'Jewelry', 'Pottery', 'Woodwork', 'Metalwork', 'Other'])
-    .withMessage('Invalid business type'),
-  body('phone')
-    .optional()
-    .matches(/^[+]?[\d\s\-\(\)]{10,15}$/)
-    .withMessage('Please provide a valid phone number'),
-  body('location')
-    .optional()
-    .trim()
-    .isLength({ max: 100 })
-    .withMessage('Location must be less than 100 characters')
+    .withMessage('Last name is required and must be less than 50 characters')
 ];
 
 const loginValidation = [
@@ -91,14 +73,14 @@ router.post('/signup', signupValidation, async (req: any, res: any) => {
       });
     }
 
-    const { email, password, firstName, lastName, businessName, businessType, phone, location } = req.body;
+    const { email, password, firstName, lastName } = req.body;
 
     // Check if user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(409).json({
         success: false,
-        message: 'User with this email already exists'
+        message: 'User already registered. Please login instead.'
       });
     }
 
@@ -107,11 +89,7 @@ router.post('/signup', signupValidation, async (req: any, res: any) => {
       email,
       password,
       firstName,
-      lastName,
-      businessName,
-      businessType,
-      phone,
-      location
+      lastName
     });
 
     // Save user to database
@@ -136,10 +114,6 @@ router.post('/signup', signupValidation, async (req: any, res: any) => {
           email: savedUser.email,
           firstName: savedUser.firstName,
           lastName: savedUser.lastName,
-          businessName: savedUser.businessName,
-          businessType: savedUser.businessType,
-          phone: savedUser.phone,
-          location: savedUser.location,
           isEmailVerified: savedUser.isEmailVerified,
           createdAt: savedUser.createdAt
         },
@@ -178,7 +152,7 @@ router.post('/login', loginValidation, async (req: any, res: any) => {
     if (!user) {
       return res.status(401).json({
         success: false,
-        message: 'Invalid email or password'
+        message: 'User doesn\'t exist. Please sign up first.'
       });
     }
 
@@ -187,7 +161,7 @@ router.post('/login', loginValidation, async (req: any, res: any) => {
     if (!isPasswordValid) {
       return res.status(401).json({
         success: false,
-        message: 'Invalid email or password'
+        message: 'Invalid password. Please try again.'
       });
     }
 
@@ -205,10 +179,6 @@ router.post('/login', loginValidation, async (req: any, res: any) => {
           email: user.email,
           firstName: user.firstName,
           lastName: user.lastName,
-          businessName: user.businessName,
-          businessType: user.businessType,
-          phone: user.phone,
-          location: user.location,
           isEmailVerified: user.isEmailVerified,
           createdAt: user.createdAt
         },
@@ -246,10 +216,6 @@ router.get('/me', authMiddleware, async (req: any, res: any) => {
           email: user.email,
           firstName: user.firstName,
           lastName: user.lastName,
-          businessName: user.businessName,
-          businessType: user.businessType,
-          phone: user.phone,
-          location: user.location,
           isEmailVerified: user.isEmailVerified,
           createdAt: user.createdAt
         }
@@ -279,24 +245,6 @@ router.put('/profile', authMiddleware, [
     .trim()
     .isLength({ min: 1, max: 50 })
     .withMessage('Last name must be less than 50 characters'),
-  body('businessName')
-    .optional()
-    .trim()
-    .isLength({ max: 100 })
-    .withMessage('Business name must be less than 100 characters'),
-  body('businessType')
-    .optional()
-    .isIn(['Textiles', 'Handicrafts', 'Jewelry', 'Pottery', 'Woodwork', 'Metalwork', 'Other'])
-    .withMessage('Invalid business type'),
-  body('phone')
-    .optional()
-    .matches(/^[+]?[\d\s\-\(\)]{10,15}$/)
-    .withMessage('Please provide a valid phone number'),
-  body('location')
-    .optional()
-    .trim()
-    .isLength({ max: 100 })
-    .withMessage('Location must be less than 100 characters')
 ], async (req: any, res: any) => {
   try {
     // Check validation errors
@@ -332,10 +280,6 @@ router.put('/profile', authMiddleware, [
           email: user.email,
           firstName: user.firstName,
           lastName: user.lastName,
-          businessName: user.businessName,
-          businessType: user.businessType,
-          phone: user.phone,
-          location: user.location,
           isEmailVerified: user.isEmailVerified,
           createdAt: user.createdAt
         }

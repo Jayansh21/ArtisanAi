@@ -499,7 +499,7 @@ const ArtisanAI: React.FC = () => {
   const ActiveComponent = tabs.find(tab => tab.id === activeTab)?.component || MarketExpansion;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       {/* Header */}
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -543,7 +543,7 @@ const ArtisanAI: React.FC = () => {
       {/* Navigation */}
       <nav className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex space-x-8">
+          <div className="flex space-x-2 sm:space-x-8 overflow-x-auto">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               const isActive = activeTab === tab.id;
@@ -553,15 +553,16 @@ const ArtisanAI: React.FC = () => {
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   className={`
-                    flex items-center space-x-2 py-4 px-1 border-b-2 font-medium text-sm transition-colors duration-200
+                    flex items-center space-x-1 sm:space-x-2 py-3 sm:py-4 px-2 sm:px-1 border-b-2 font-medium text-xs sm:text-sm transition-colors duration-200 whitespace-nowrap flex-shrink-0
                     ${isActive
                       ? 'border-blue-500 text-blue-600'
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                     }
                   `}
                 >
-                  <Icon className="w-5 h-5" />
-                  <span>{tab.name}</span>
+                  <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="hidden sm:inline">{tab.name}</span>
+                  <span className="sm:hidden">{tab.name.split(' ')[0]}</span>
                 </button>
               );
             })}
@@ -570,7 +571,7 @@ const ArtisanAI: React.FC = () => {
       </nav>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <main className="flex-1 max-w-7xl mx-auto py-4 sm:py-6 px-4 sm:px-6 lg:px-8">
         <ActiveComponent />
       </main>
     </div>
