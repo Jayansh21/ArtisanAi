@@ -4,6 +4,9 @@ import { api } from './api';
 export class TranslationService {
   static async translateStory(request: TranslationRequest): Promise<TranslationResponse> {
     try {
+      console.log('🔍 Translation request:', request);
+      console.log('🔍 API headers:', api.defaults.headers);
+      
       const response = await api.post('/storytelling/translate', {
         text: request.text,
         sourceLanguage: request.sourceLanguage,
