@@ -25,7 +25,9 @@ const corsOptions = {
   origin: [
     process.env.FRONTEND_URL || 'http://localhost:3000',
     'https://artisanai-omega.vercel.app',
-    'https://artisanai-omega.vercel.app/'
+    'https://artisanai-omega.vercel.app/',
+    'https://artisanai-6r8xn3pzz-jayansh-jains-projects.vercel.app',
+    'https://artisanai-6r8xn3pzz-jayansh-jains-projects.vercel.app/'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
