@@ -32,7 +32,8 @@ function resolveApiBaseUrl(): string {
 
 const API_BASE_URL: string = resolveApiBaseUrl();
 
-// Debug: Log the API base URL
+// Debug: Log the API base URL and environment variable
+console.log('🔍 Environment Variable:', process.env.REACT_APP_API_URL);
 console.log('🔍 API Base URL:', API_BASE_URL);
 
 // ✅ Explicit AxiosRequestConfig fixes TS errors
