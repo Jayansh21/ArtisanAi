@@ -112,6 +112,11 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     } catch (error: any) {
       dispatch({ type: 'AUTH_FAILURE' });
       
+      // Debug logging
+      console.log('Login error:', error);
+      console.log('Error response:', error.response);
+      console.log('Error message:', error.message);
+      
       // Enhanced error handling for login
       if (error.code === 'ECONNABORTED') {
         throw new Error('Request timeout. Please check your internet connection and try again.');
@@ -163,6 +168,11 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       }
     } catch (error: any) {
       dispatch({ type: 'AUTH_FAILURE' });
+      
+      // Debug logging
+      console.log('Signup error:', error);
+      console.log('Error response:', error.response);
+      console.log('Error message:', error.message);
       
       // Enhanced error handling with better user messages
       if (error.code === 'ECONNABORTED') {

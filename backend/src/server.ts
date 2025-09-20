@@ -24,10 +24,13 @@ const PORT = process.env.PORT || 5000;
 const corsOptions = {
   origin: [
     process.env.FRONTEND_URL || 'http://localhost:3000',
+    // Production Vercel URLs (can be updated as needed)
     'https://artisanai-omega.vercel.app',
     'https://artisanai-omega.vercel.app/',
     'https://artisanai-6r8xn3pzz-jayansh-jains-projects.vercel.app',
-    'https://artisanai-6r8xn3pzz-jayansh-jains-projects.vercel.app/'
+    'https://artisanai-6r8xn3pzz-jayansh-jains-projects.vercel.app/',
+    // Allow any Vercel preview deployments
+    /^https:\/\/artisanai.*\.vercel\.app$/
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],

@@ -44,6 +44,7 @@ const SignupPage: React.FC = () => {
       
       // Show success message
       setSuccess('Account created successfully! Redirecting to your dashboard...');
+      setIsLoading(false);
       
       // Navigate to artisan dashboard after successful signup
       setTimeout(() => {

@@ -1,6 +1,11 @@
 # 🎨 ArtisanAI - AI-Powered Storytelling Platform
 
-A full-stack web application that enables users to create, translate, and share stories using AI-powered translation and voice-to-text features.
+A modern full-stack web application that empowers craft enthusiasts and storytellers to create, translate, and share their stories using cutting-edge AI technology. Built with React, Node.js, and Google Cloud AI services.
+
+## 🔗 Live Demo
+
+- **Frontend**: [https://artisanai-omega.vercel.app](https://artisanai-omega.vercel.app)
+- **Backend API**: [https://artisanai-production.up.railway.app](https://artisanai-production.up.railway.app)
 
 ## ✨ Features
 
@@ -42,7 +47,7 @@ A full-stack web application that enables users to create, translate, and share 
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/artisan-ai.git
+   git clone https://github.com/Jayansh21/ArtisanAi.git
    cd artisan-ai
    ```
 
@@ -134,6 +139,44 @@ artisan-ai/
 └── shared/                 # Shared types and constants
 ```
 
+## 🛠️ Development
+
+### Available Scripts
+
+**Backend:**
+- `npm run dev` - Start development server with hot reload
+- `npm run build` - Build for production
+- `npm start` - Start production server
+
+**Frontend:**
+- `npm start` - Start development server
+- `npm run build` - Build for production
+- `npm test` - Run tests
+
+### API Endpoints
+
+- `POST /api/auth/signup` - User registration
+- `POST /api/auth/login` - User login
+- `GET /api/auth/me` - Get user profile
+- `POST /api/storytelling/translate` - Translate text
+- `POST /api/storytelling/speech-to-text` - Convert speech to text
+- `GET /api/storytelling/my-stories` - Get user stories
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+1. **MongoDB Connection Error**: Ensure your MongoDB Atlas URI is correct and whitelist your IP
+2. **Google Cloud API Errors**: Verify your service account has proper permissions
+3. **CORS Issues**: Check that FRONTEND_URL matches your frontend domain
+4. **JWT Errors**: Ensure JWT_SECRET is consistent between deployments
+
+### Getting Help
+
+- Check the [Issues](https://github.com/Jayansh21/ArtisanAi/issues) page
+- Review the deployment logs in Railway/Vercel
+- Ensure all environment variables are properly set
+
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -152,3 +195,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - MongoDB Atlas for database hosting
 - Vercel and Railway for deployment platforms
 - The open-source community for amazing tools and libraries
+
+---
+
+**Made with ❤️ by [Jayansh Jain](https://github.com/Jayansh21)**

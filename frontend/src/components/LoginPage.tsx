@@ -34,6 +34,7 @@ const LoginPage: React.FC = () => {
     try {
       await login(formData);
       setSuccess('Login successful! Redirecting to your dashboard...');
+      setIsLoading(false);
       setTimeout(() => {
         navigate('/artisan');
       }, 1000);
