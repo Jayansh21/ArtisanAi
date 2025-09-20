@@ -16,6 +16,7 @@ yarn-error.log*
 !package*.json
 !tsconfig.json
 !railway.json
+!nixpacks.toml
 
 # Build outputs
 dist/
