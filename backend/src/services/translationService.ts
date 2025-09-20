@@ -198,6 +198,10 @@ export class TranslationService {
     const { text, sourceLanguage, targetLanguages } = request;
 
     logger.info(`Starting batch translation to ${targetLanguages.length} languages`);
+    logger.info(`Text: "${text}"`);
+    logger.info(`Source language: ${sourceLanguage}`);
+    logger.info(`Target languages: ${JSON.stringify(targetLanguages)}`);
+    logger.info(`Service initialized: ${this.isInitialized}`);
 
     const results: TranslationResult[] = [];
     const errors: string[] = [];

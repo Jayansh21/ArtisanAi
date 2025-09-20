@@ -122,12 +122,18 @@ export const storytellingController = {
       }
 
       logger.info(`Translating story for user ${req.user?.id} to ${targetLanguages.length} languages`);
+      logger.info(`Text to translate: "${text}"`);
+      logger.info(`Source language: ${sourceLanguage || 'en'}`);
+      logger.info(`Target languages: ${JSON.stringify(targetLanguages)}`);
 
       const translations = await getTranslationService().batchTranslate({
         text,
         sourceLanguage: sourceLanguage || 'en',
         targetLanguages
       });
+
+      logger.info(`Translation service returned ${translations.length} translations`);
+      logger.info(`Translations: ${JSON.stringify(translations)}`);
 
       res.json({
         success: true,
