@@ -1,8 +1,14 @@
 // frontend/src/services/api.ts
 import axios, { AxiosRequestConfig } from "axios";
 
-// ✅ Compute base URL robustly: env override > infer from origin > default 3001
+// ✅ Use environment variable first, then fallback to local development
 function resolveApiBaseUrl(): string {
+  // Use environment variable if set (for production)
+  if (process.env.REACT_APP_API_URL) {
+    return process.env.REACT_APP_API_URL;
+  }
+  
+  // Fallback for local development
   if (typeof window !== 'undefined' && window.location) {
     const origin = window.location.origin; // e.g. http://localhost:3000
     try {
