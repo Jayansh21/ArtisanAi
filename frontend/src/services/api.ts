@@ -8,6 +8,11 @@ function resolveApiBaseUrl(): string {
     return process.env.REACT_APP_API_URL;
   }
   
+  // Temporary hardcode for production testing
+  if (typeof window !== 'undefined' && window.location.hostname.includes('vercel.app')) {
+    return "https://artisanai-production.up.railway.app/api";
+  }
+  
   // Fallback for local development
   if (typeof window !== 'undefined' && window.location) {
     const origin = window.location.origin; // e.g. http://localhost:3000
