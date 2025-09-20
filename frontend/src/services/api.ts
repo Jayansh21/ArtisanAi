@@ -32,6 +32,9 @@ function resolveApiBaseUrl(): string {
 
 const API_BASE_URL: string = resolveApiBaseUrl();
 
+// Debug: Log the API base URL
+console.log('🔍 API Base URL:', API_BASE_URL);
+
 // ✅ Explicit AxiosRequestConfig fixes TS errors
 const config: AxiosRequestConfig = {
   baseURL: API_BASE_URL,
