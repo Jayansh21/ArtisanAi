@@ -118,7 +118,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       } else if (error.message === 'Network Error') {
         throw new Error('Unable to connect to server. Please check your internet connection.');
       } else if (error.response?.status === 401) {
-        throw new Error('Invalid email or password');
+        throw new Error(error.response.data.message || 'Invalid email or password');
       } else if (error.response?.status === 500) {
         throw new Error('Server error. Please try again later.');
       } else if (error.response?.data?.message) {
@@ -170,7 +170,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       } else if (error.message === 'Network Error') {
         throw new Error('Unable to connect to server. Please check your internet connection.');
       } else if (error.response?.status === 409) {
-        throw new Error('An account with this email already exists');
+        throw new Error(error.response.data.message || 'An account with this email already exists');
       } else if (error.response?.status === 400) {
         const validationErrors = error.response.data.errors;
         if (validationErrors && Array.isArray(validationErrors)) {
