@@ -13,9 +13,11 @@ export class TranslationService {
         targetLanguages: request.targetLanguages
       });
 
+      console.log('🔍 Translation response:', response.data);
       const result = response.data;
 
       // Normalize to expected TranslationResponse
+      console.log('🔍 Processing translations from:', result.data?.translations);
       const translations: Translation[] = (result.data?.translations || []).map((t: any) => ({
         id: t.id || `temp-${Date.now()}`,
         storyId: t.storyId || '',
@@ -26,6 +28,7 @@ export class TranslationService {
         createdAt: t.createdAt ? new Date(t.createdAt) : new Date()
       }));
 
+      console.log('🔍 Final translations array:', translations);
       return { success: true, translations } as TranslationResponse;
     } catch (error: any) {
       const message = error.response?.data?.message || error.message || 'Translation failed';
