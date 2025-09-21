@@ -128,8 +128,6 @@ artisan-ai/
 
 ## 🛠️ Development
 
-### Available Scripts
-
 ### API Endpoints
 
 - `POST /api/auth/signup` - User registration
