@@ -97,19 +97,6 @@ A modern full-stack web application that empowers craft enthusiasts and storytel
    npm start
    ```
 
-## 🌐 Deployment
-
-### Frontend (Vercel)
-1. Connect your GitHub repository to Vercel
-2. Set build command: `npm run build`
-3. Set output directory: `build`
-4. Add environment variable: `REACT_APP_API_URL`
-
-### Backend (Railway)
-1. Connect your GitHub repository to Railway
-2. Set root directory to `backend`
-3. Add environment variables from your `.env` file
-4. Upload your Google Cloud service account key
 
 ## 📁 Project Structure
 
