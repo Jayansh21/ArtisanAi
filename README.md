@@ -149,20 +149,6 @@ artisan-ai/
 - `POST /api/storytelling/speech-to-text` - Convert speech to text
 - `GET /api/storytelling/my-stories` - Get user stories
 
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **MongoDB Connection Error**: Ensure your MongoDB Atlas URI is correct and whitelist your IP
-2. **Google Cloud API Errors**: Verify your service account has proper permissions
-3. **CORS Issues**: Check that FRONTEND_URL matches your frontend domain
-4. **JWT Errors**: Ensure JWT_SECRET is consistent between deployments
-
-### Getting Help
-
-- Check the [Issues](https://github.com/Jayansh21/ArtisanAi/issues) page
-- Review the deployment logs in Railway/Vercel
-- Ensure all environment variables are properly set
 
 ## 🤝 Contributing
 
