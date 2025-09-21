@@ -130,16 +130,6 @@ artisan-ai/
 
 ### Available Scripts
 
-**Backend:**
-- `npm run dev` - Start development server with hot reload
-- `npm run build` - Build for production
-- `npm start` - Start production server
-
-**Frontend:**
-- `npm start` - Start development server
-- `npm run build` - Build for production
-- `npm test` - Run tests
-
 ### API Endpoints
 
 - `POST /api/auth/signup` - User registration
